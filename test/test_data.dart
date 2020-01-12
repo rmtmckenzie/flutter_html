@@ -8,6 +8,7 @@ const testData = <String, String>{
   'b': '<b>Hello, World!</b>',
   'bdi': '<bdi>Hello, World!</bdi>',
   'bdo': '<bdo>Hello, World!</bdo>',
+  'bi': '<bi>Hello, World!</bi>',
   'big': '<big>Hello, World!</big>',
   'blockquote': '<blockquote>Hello, World!</blockquote>',
   'body': '<body>Hello, World!</body>',

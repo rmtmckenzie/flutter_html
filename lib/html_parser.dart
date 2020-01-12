@@ -41,6 +41,7 @@ class HtmlOldParser extends StatelessWidget {
     "b",
     "bdi",
     "bdo",
+    "bi",
     "big",
     "blockquote",
     "body",
@@ -230,6 +231,16 @@ class HtmlOldParser extends StatelessWidget {
           //Direction attribute is required, just render the text normally now.
           return Wrap(
             children: _parseNodeList(node.nodes),
+          );
+        case "bi":
+          return DefaultTextStyle.merge(
+            child: Wrap(
+              children: _parseNodeList(node.nodes),
+            ),
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontStyle: FontStyle.italic,
+            ),
           );
         case "big":
           return DefaultTextStyle.merge(

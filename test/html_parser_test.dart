@@ -1127,4 +1127,34 @@ void main() {
 
     expect(find.byType(RichText), findsOneWidget);
   });
+
+  testWidgets("Check that `bi` tag renders", (tester) async {
+    String html = "<bi>bi</bi>";
+
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: Html(
+            data: html,
+            useRichText: false,
+          ),
+        ),
+      ),
+    );
+
+    expect(find.text("bi"), findsOneWidget);
+
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: Html(
+            data: html,
+            useRichText: true,
+          ),
+        ),
+      ),
+    );
+
+    expect(find.byType(RichText), findsOneWidget);
+  });
 }
