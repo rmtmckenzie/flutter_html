@@ -188,6 +188,7 @@ class HtmlRichTextParser extends StatelessWidget {
   static const _supportedStyleElements = [
     "b",
     "i",
+    "bi",
     "address",
     "cite",
     "var",
@@ -478,7 +479,7 @@ class HtmlRichTextParser extends StatelessWidget {
         TextStyle childStyle = parseContext.childStyle ?? TextStyle();
 
         switch (node.localName) {
-          //"b","i","em","strong","code","u","small","abbr","acronym"
+          //"b","i","bi","em","strong","code","u","small","abbr","acronym"
           case "b":
           case "strong":
             childStyle =
@@ -491,6 +492,10 @@ class HtmlRichTextParser extends StatelessWidget {
           case "em":
             childStyle =
                 childStyle.merge(TextStyle(fontStyle: FontStyle.italic));
+            break;
+          case "bi":
+            childStyle =
+                childStyle.merge(TextStyle(fontWeight: FontWeight.bold, fontStyle: FontStyle.italic));
             break;
           case "kbd":
           case "samp":
